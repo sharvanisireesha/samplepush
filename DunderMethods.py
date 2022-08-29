@@ -25,7 +25,7 @@ class Employee:
     @classmethod
     def from_string(cls, empstr):
        id, fname, lname, email, sal = empstr.split('-')
-        return cls(id,fname, lname, email, sal)
+       return cls(id,fname, lname, email, sal)
 
     @staticmethod
     def isworkday(day):
