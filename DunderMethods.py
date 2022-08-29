@@ -3,7 +3,8 @@ class Employee:
     annualincrement = 1.04
     noofemp = 0
 
-    def __init__(self, fname, lname, email, sal):
+    def __init__(self,id , fname, lname, email, sal):
+        self.id =id
         self.fname = fname
         self.lname = lname
         self.email = email
@@ -23,8 +24,8 @@ class Employee:
 
     @classmethod
     def from_string(cls, empstr):
-        fname, lname, email, sal = empstr.split('-')
-        return cls(fname, lname, email, sal)
+       id, fname, lname, email, sal = empstr.split('-')
+        return cls(id,fname, lname, email, sal)
 
     @staticmethod
     def isworkday(day):
@@ -34,10 +35,10 @@ class Employee:
 
     def __repr__(self):
         # This returns the tuple of  instance form itsself
-        return "Employee('{}','{}','{}',{})" .format(self.fname, self.lname, self.email, self.sal)
+        return "Employee('{}','{}','{}',{})" .format(self.id,self.fname, self.lname, self.email, self.sal)
 
     def __str__(self):
-        return "EmployeeInfo('{}','{}','{}',{})" .format(self.fname, self.lname, self.email, self.sal)
+        return "EmployeeInfo('{}','{}','{}',{})" .format(self.id,self.fname, self.lname, self.email, self.sal)
 
     def __add__(self, other):
         return self.sal + other.sal
@@ -46,8 +47,8 @@ class Employee:
         return len(self.fname)
 
 
-emp1 = Employee("kasis", "Lakme", "kasis@comp.com", 5)
-emp2 = Employee("Benan", "Trout", "Benan@comp.com", 8)
+emp1 = Employee(101,"kasis", "Lakme", "kasis@comp.com", 5)
+emp2 = Employee(102,"Benan", "Trout", "Benan@comp.com", 8)
 
 # now print method will check for either repr or str dunder methods
 print(emp1)
